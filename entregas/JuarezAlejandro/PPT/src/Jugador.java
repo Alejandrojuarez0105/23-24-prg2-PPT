@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Jugador {
 
     private String nombre;
-    private Opcion opcion;
+    private int opcion;
     private int victorias;
 
     public Jugador(String nombre) {
@@ -18,19 +18,18 @@ public class Jugador {
 
     public void elegirOpcion() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(nombre + " elige (1: Piedra, 2: Papel, 3: Tijera): ");
+        System.out.println(nombre + " elige (1: Piedra, 2: Papel, 3: Tijera, 4:Lagarto, 5:Spock): ");
         int opcionElegida = scanner.nextInt();
-        Opcion[] opciones = { Opcion.Piedra, Opcion.Papel, Opcion.Tijera };
 
-        if (opcionElegida >= 1 && opcionElegida <= 3) {
-            opcion = opciones[opcionElegida - 1];
+        if (opcionElegida >= 1 && opcionElegida <= 5) {
+            opcion = opcionElegida;
         } else {
             System.out.println("Opción incorrecta");
             elegirOpcion();
         }
     }
 
-    public Opcion getOpcion() {
+    public int getOpcion() {
         return opcion;
     }
 
@@ -40,9 +39,5 @@ public class Jugador {
 
     public int getVictorias() {
         return victorias;
-    }
-
-    public enum Opcion {
-        Piedra, Papel, Tijera
     }
 }
